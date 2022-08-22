@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>btnEvent</title>
+  </head>
+  <body>
+    <div id="container">
+      <h2 id="title">who am i?</h2>
+      <button id="click">click</button>
+      <button id="dbClick">dbClick</button>
+      <button id="rightClick">rightClick</button>
+      <button id="mouseEnter">mouseEnter</button>
+      <button id="mouseLeave">mouseLeave</button>
+
+      <form>
+        <input placeholder="write something" id="inputfiled" />
+        <button>submit</button>
+      </form>
+    </div>
+
+    <script>
+      const click = document.getElementById("click");
+      const dbClick = document.getElementById("dbClick");
+      const rightClick = document.getElementById("rightClick");
+      const mouseEnter = document.getElementById("mouseEnter");
+      const mouseLeave = document.getElementById("mouseLeave");
+
+      const title = document.getElementById("title");
+
+      function onClick() {
+        console.log("hello from click");
+      }
+
+      function onDbClick() {
+        console.log("hello from Double click");
+      }
+
+      function onRightClick() {
+        console.log("hello from RightClick");
+      }
+
+      function onMouseEnter() {
+        console.log("hello from mouseEnter");
+      }
+      function onMouseLeave() {
+        console.log("hello from MouseLeave");
+      }
+      function onScroll() {
+        console.log("hello from scroll");
+        prEvnetDe;
+      }
+
+      document.addEventListener("scroll", onScroll);
+
+      click.addEventListener("click", onClick);
+      dbClick.addEventListener("dblclick", onDbClick);
+      rightClick.addEventListener("contextmenu", onRightClick);
+      mouseEnter.addEventListener("mouseenter", onMouseEnter);
+      mouseLeave.addEventListener("mouseleave", onMouseLeave);
+    </script>
+  </body>
+</html>

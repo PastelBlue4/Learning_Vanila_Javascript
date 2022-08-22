@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>HtmlForCopy</title>
+  </head>
+  <body>
+    <script>
+      array = [1, 2, 3, 4, 5];
+      array.filter((currentValue, indexOfValue, oldArray) => {
+        //currentValue 에게는 지금 계산중인 값.
+        //indexOfValue 에게는 지금 계산중인 값의 배열상 순서.
+        //oldArray 에게는 현재 계산중인 배열.
+        console.log(currentValue);
+        //출력 값 : 1,2,3,4,5
+
+        console.log(indexOfValue);
+        //출력 값 : 0,1,2,3,4
+
+        console.log(oldArray);
+        //출력 값 : [1, 2, 3, 4, 5],[1, 2, 3, 4, 5],[1, 2, 3, 4, 5],[1, 2, 3, 4, 5],[1, 2, 3, 4, 5]
+
+        return currentValue > 2;
+      });
+
+      //array.filter()의 출력 값 : : 3,4,5
+    </script>
+  </body>
+</html>

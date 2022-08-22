@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>submit</title>
+  </head>
+  <body>
+    <form class="form-example">
+      <div class="form-example">
+        <label for="name">Enter your name: </label>
+        <input type="text" name="name" id="name" required />
+      </div>
+      <div class="form-example">
+        <label for="email">Enter your email: </label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div class="form-example">
+        <input id="submitBtn" type="submit" value="Submut" />
+      </div>
+    </form>
+    <span id="userNameSpan">somewhereOverthe</span>
+    <br />
+    <span id="userEmailSpan">rain bow</span>
+
+    <script>
+      const inputName = document.getElementById("name");
+      const inputEmail = document.getElementById("email");
+
+      const userNameSpan = document.getElementById("userNameSpan");
+      const userEmailSpan = document.getElementById("userEmailSpan");
+
+      const submitBtn = document.getElementById("submitBtn");
+
+      submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const pushName = inputName.value;
+        const pushEmail = inputEmail.value;
+        userNameSpan.innerText = "user Name :" + pushName;
+        userEmailSpan.innerText = "user Email :" + pushEmail;
+      });
+    </script>
+  </body>
+</html>

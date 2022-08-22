@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>filterWithTestCase</title>
+  </head>
+  <body>
+    <h1 class="header">
+      array.filter를 더 공부하기 위한 testCaseArray 만들기.
+    </h1>
+
+    <section class="section">
+      <div class="textArea">
+        <span class="text">
+          Math.random() * 10 ** 17; Math.random()메서드를 이용해, 17자리의
+          난수를 만들어준다. 소숫점으로 출력되기때문에 10^17을 곱해준다.
+        </span>
+      </div>
+      <div class="hightLight">
+        생성된 난수 : <span id="firstRandomNumber"></span>, 타입 :
+        <span id="firstRandomNumberToType"></span>.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="textArea">
+        <span class="text">
+          String() 함수로 정수를 문자열로 변환. Array.from 메서드는
+          number타입으로 사용시 빈 값 리턴 하기때문.
+        </span>
+      </div>
+
+      <div class="hightLight">
+        전환된 string : <span id="secondRandomNumber"></span>, 타입 :<span
+          id="secondRandomNumberToType"
+        ></span
+        >.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="textArea">
+        <span class="text">
+          Array.from() 메서드를 통해 각 배열에 할당해준다.
+        </span>
+      </div>
+
+      <div class="hightLight">
+        할당된 string : <span id="thirdRandomNumber"></span>, 배열의 true/false
+        :<span id="thirdRandomNumberToType"></span>.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="textArea">
+        <span class="text">
+          Array.from() 메서드는 두번째 인자로, 각 요소에 호출할 map()
+          함수가주어진다. <br />
+          parseInt() 메서드로 각 배열에 있는 string을 number로 변환,<br />
+          parseInt(i,10)의 두번째 인자로는 전환할 진수를 입력해준다.(10진수)<br />
+        </span>
+      </div>
+
+      <div class="hightLight">
+        number로 변환된 배열 : <span id="forthRandomNumber"></span> 배열 내부의
+        타입 : <span id="forthdRandomNumberToType"></span>, 배열의 수 :
+        <span id="forthRandomNumberLength"></span>.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="textArea">
+        <span class="text"> 연속된 수 제거 연산 </span>
+      </div>
+
+      <div class="hightLight">
+        연산 이후 배열 <span id="afterLogic"></span>, 배열 내부의 타입 :
+        <span id="afterLogicType"></span>, 배열의 수 :
+        <span id="afterLogicLength"></span>.
+      </div>
+    </section>
+
+    <script>
+      const firstRandomNumber = document.getElementById("firstRandomNumber");
+      const firstRandomNumberToType = document.getElementById(
+        "firstRandomNumberToType"
+      );
+      const secondRandomNumber = document.getElementById("secondRandomNumber");
+      const secondRandomNumberToType = document.getElementById(
+        "secondRandomNumberToType"
+      );
+      const thirdRandomNumber = document.getElementById("thirdRandomNumber");
+      const thirdRandomNumberToType = document.getElementById(
+        "thirdRandomNumberToType"
+      );
+      const forthRandomNumber = document.getElementById("forthRandomNumber");
+      const forthdRandomNumberToType = document.getElementById(
+        "forthdRandomNumberToType"
+      );
+      const forthRandomNumberLength = document.getElementById(
+        "forthRandomNumberLength"
+      );
+
+      const afterLogic = document.getElementById("afterLogic");
+      const afterLogicType = document.getElementById("afterLogicType");
+      const afterLogicLength = document.getElementById("afterLogicLength");
+
+      const randomNumbers = Math.random() * 10 ** 17; // 난수 생성
+      firstRandomNumber.innerText = randomNumbers;
+      firstRandomNumberToType.innerText = typeof randomNumbers; // 변환 하지 않은 난수
+
+      secondRandomNumber.innerText = String(randomNumbers);
+      secondRandomNumberToType.innerText = typeof String(randomNumbers); // 난수를 문자열로 변환.
+
+      thirdRandomNumber.innerText = Array.from(String(randomNumbers));
+      thirdRandomNumberToType.innerText = Array.isArray(
+        Array.from(String(randomNumbers))
+      );
+
+      forthRandomNumber.innerText = Array.from(String(randomNumbers), (i) =>
+        parseInt(i, 10)
+      );
+
+      const finalArray = Array.from(String(randomNumbers), (i) =>
+        parseInt(i, 10)
+      );
+
+      forthdRandomNumberToType.innerText = typeof finalArray[1];
+
+      forthRandomNumberLength.innerText = finalArray.length;
+
+      const result = finalArray.filter(
+        (currentValue, indexOfValue) =>
+          currentValue != finalArray[indexOfValue + 1]
+      );
+
+      afterLogic.innerText = result;
+
+      afterLogicType.innerText = typeof result[1];
+
+      afterLogicLength.innerText = result.length;
+
+      //각 문자열을 배열에 할당.
+      // const testCaseArray = Array.from(String(Math.random() * 10 ** 17), (i) =>
+      //   parseInt(i, 10)
+      // );
+
+      // );
+      // // Math.random()을 통해 17자리의 난수 생성.
+      // //그 뒤에 10^17을 곱해 소숫점을 정수로 변환.
+      // //String() 함수로 정수를 문자열로 변환. Array.from 메서드는 number타입으로 사용시 빈 값 리턴 하기때문.
+
+      //Array.from에 두번째 옵션 인자로는 각 배열  요소에 호출할 맵핑 함수가 주어진다. 각 배열에 string을 number로 리턴하는
+      //parseInt() 메서드를 사용한다. 첫번째 인자로는 변환할 값, 두번째 인자로는 변환할 진법을 전달한다.(옵션)
+
+      // console.log(Array.from(randomNumbers)); // > number type은 Array.from메서드를 사용했을때, 빈배열로 리턴된다.
+
+      // //   const result = testCaseArray.filter(
+      // //     (currentValue, indexOfValue) =>
+      // //       currentValue !== testCaseArray[indexOfValue + 1]
+      // //   );
+      // //   console.log(testCaseArray);
+      // //   console.log(result);
+    </script>
+  </body>
+</html>
