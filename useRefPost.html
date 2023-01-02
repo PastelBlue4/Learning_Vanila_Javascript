@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <link rel="stylesheet" href="/css/useRefPostStyle.css" />
+    <title>HtmlForCopy</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <span class="span">default message! </span>
+
+        <button class="button">Click ME!</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const span = document.querySelector(".span");
+    const button = document.querySelector(".button");
+
+    function onClick() {
+      span.innerText = "new message!";
+    }
+
+    button.addEventListener("click", onClick);
+  </script>
+</html>

@@ -1,20 +1,17 @@
-section {
-  width: 500px;
-  border: black solid 1px;
+.message {
+  border: 1px solid blue;
+  width: 532px;
+  margin: 0 12px;
+  border: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-section ul.contact li {
-  display: flex;
-}
+.message span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
-section ul.contact li i {
-  width: 5%;
-  border: solid green 1px;
-  text-align: center;
-}
-
-section ul.contact li span {
-  width: 50%;
-  border: solid red 1px;
-  text-align: center;
+  border: 1px solid red;
 }
